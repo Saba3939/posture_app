@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from "react";
-
+interface Data {
+	name: string;
+	age: number;
+	_id?: string;
+}
 const Home = () => {
-	const [data, setData] = useState(null);
-	const [error, setError] = useState(null);
+	const [data, setData] = useState<Data | null>(null);
+	const [error, setError] = useState<string | null>(null);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 	useEffect(() => {
-		fetch("http://160.16.198.143:5000/data")
-			.then((response) => {
+		const fetchData = async () => {
+			try {
+				setIsLoading(true);
+				const response = await fetch("http://160.16.198.143:3000/data/Kento");
 				if (!response.ok) {
-					throw new Error("データの取得に失敗しました");
+					throw new Error(`HTTPエラー 状態: ${response.status}`);
 				}
-				return response.json();
-			})
-			.then((jsonData) => {
-				setData(jsonData);
-			})
-			.catch((error) => {
-				setError(error.massage);
-			});
-	});
+				const result: Data = await response.json();
+				setData(result);
+			} catch (err) {
+				setError((err as Error).message);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+		fetchData();
+	}, []);
+	if (isLoading) return <p>読み込み中</p>;
+	if (error) return <p>エラー: {error}</p>;
 	return (
 		<div className='text-center'>
 			<h1 className='text-4xl font-bold'>データ表示</h1>
-			{error ? (
-				<p className='text-red-500'>{error}</p>
-			) : (
-				<p>{JSON.stringify(data, null, 2)}</p>
-			)}
+			<pre>{JSON.stringify(data, null, 2)}</pre>
 		</div>
 	);
 };
