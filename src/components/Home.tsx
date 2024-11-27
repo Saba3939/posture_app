@@ -5,7 +5,7 @@ interface Data {
 	_id?: string;
 }
 const Home = () => {
-	const [data, setData] = useState<Data | null>(null);
+	const [data, setData] = useState<Data[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	useEffect(() => {
@@ -16,8 +16,9 @@ const Home = () => {
 				if (!response.ok) {
 					throw new Error(`HTTPエラー 状態: ${response.status}`);
 				}
-				const result: Data = await response.json();
-				setData(result);
+				const result: Data[] = await response.json();
+				const formattedData = Array.isArray(result) ? result : [result]; // 配列でない場合の対策
+				setData(formattedData);
 			} catch (err) {
 				setError((err as Error).message);
 			} finally {
@@ -26,12 +27,19 @@ const Home = () => {
 		};
 		fetchData();
 	}, []);
-	if (isLoading) return <p>読み込み中</p>;
-	if (error) return <p>エラー: {error}</p>;
+	if (isLoading) return <p className='text-center'>読み込み中</p>;
+	if (error) return <p className='text-center'>エラー: {error}</p>;
 	return (
 		<div className='text-center'>
 			<h1 className='text-4xl font-bold'>データ表示</h1>
-			<pre>{JSON.stringify(data, null, 2)}</pre>
+			<ul>
+				{data.map((item, index) => (
+					<li key={index}>
+						<p className='text-center'>名前:{item.name}</p>
+						<p className='text-center'>年齢:{item.age}</p>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 };
