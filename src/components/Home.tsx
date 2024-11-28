@@ -27,16 +27,15 @@ const Home = () => {
 		};
 		fetchData();
 	}, []);
-	if (isLoading) return <p className='text-center'>読み込み中</p>;
-	if (error) return <p className='text-center'>エラー: {error}</p>;
+	if (error) return <p className='text-center text-white'>エラー: {error}</p>;
 	return (
-		<div className='text-center'>
+		<div className='text-center  text-white h-screen'>
 			<h1 className='text-4xl font-bold'>データ表示</h1>
 			<ul>
 				{data.map((item, index) => (
 					<li key={index}>
-						<p className='text-center'>名前:{item.name}</p>
-						<p className='text-center'>年齢:{item.age}</p>
+						<p className='text-center '>名前:{item.name}</p>
+						<p className='text-center '>年齢:{item.age}</p>
 					</li>
 				))}
 			</ul>
