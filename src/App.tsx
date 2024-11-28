@@ -2,11 +2,11 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import "./App.css";
-import AppSidebar  from "./components/Sidebar";
+import AppSidebar from "./components/Sidebar";
 
 function App() {
 	return (
-		<div>
+		<div className='h-screen bg-opacity-90 bg-black'>
 			{/* <Header /> */}
 			<AppSidebar />
 			<Home />
