@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# DCON2025 Web アプリリポジトリ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+これは DCON2025 のチーム bogosort の Web アプリのリポジトリです。
 
-Currently, two official plugins are available:
+## Web アプリ開発メンバー
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+・辻本  
+・塚本
 
-## Expanding the ESLint configuration
+## クローンする際
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+クローンしたときに node_modules はこのリポジトリに含まれていないので以下をターミナルで実行してください。
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## ブランチについて
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+ブランチの命名はいかに沿って行ってください
+ブランチ名 | 役割 | 派生元 | マージ先 |
+| ---------- | ---------------------------------- | ------- | --------------- |
+| main | 公開するものを置くブランチ | | |
+| feat/* | 開発要ブランチ。*には開発するものの名前を入れる | main | main |
+|
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## コミットメッセージについて
+
+feat:新規機能  
+add:ファイル追加  
+update:機能修正  
+change:機能変更  
+fix:バグ修正  
+clean:整理  
+remove:削除
+
+## 使用技術
+
+- React
+- TypeScript
+- TailwindCSS
+- Shadcn
