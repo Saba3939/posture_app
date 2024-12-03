@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ContentsBoxProps {
     title : string;
@@ -7,10 +8,14 @@ interface ContentsBoxProps {
 
 const Contents: React.FC<ContentsBoxProps> = ({ title, children }) => {
     return (
-        <div className="bg-black p-6 text-white">
-            <h2 className="text-lg mb-4">{title}</h2>
-            <div>{children}</div>
-        </div>
+        <Card className="bg-black p-6 text-white">
+            <CardHeader className="text-lg mb-4">
+                <CardTitle>{title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div>{children}</div>
+            </CardContent>
+        </Card>
     )
 }
 
