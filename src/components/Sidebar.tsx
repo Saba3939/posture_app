@@ -3,7 +3,7 @@ import { Home, BarChart2, FileText, ChartSpline, User, Settings } from "lucide-r
 
 const AppSidebar = () => {
     return (
-        <div className="bg-black h-screen w-[80px] fixed flex flex-col justify-between items-center">
+        <div className="bg-black h-screen w-[80px] flex flex-col justify-between items-center">
             <div className="mt-4 flex flex-col space-y-4">
                 <Home className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                 <BarChart2 className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
