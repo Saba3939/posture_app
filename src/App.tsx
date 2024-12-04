@@ -7,10 +7,10 @@ import AppSidebar from "./components/Sidebar";
 
 function App() {
 	return (
-		<div className='h-screen bg-opacity-90 bg-black grid grid-cols-[80px_1fr]'>
+		<div className='h-screen bg-opacity-90 bg-black flex'>
 			{/* <Header /> */}
 			<AppSidebar />
-			<div className="p-4">
+			<div className="flex-1 p-4">
 				<Home />
 				<Contents title="" children="" />
 			</div>
