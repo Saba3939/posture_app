@@ -10,9 +10,12 @@ function App() {
 		<div className='h-screen bg-opacity-90 bg-black flex'>
 			{/* <Header /> */}
 			<AppSidebar />
-			<div className="flex-1 p-4">
+			<div className="flex-1 p-4 flex flex-col gap-6">
 				<Home />
-				<Contents title="" children="" />
+				<Contents title="グラフ" children="ここに説明を追加" />
+				<Contents title="評価" children="ここに説明を追加" />
+				<Contents title="改善案" children="ここに説明を追加" />
+				<Contents title="連続記録" children="ここに説明を追加" />
 			</div>
 		</div>
 	);
