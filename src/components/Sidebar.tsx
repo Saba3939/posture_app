@@ -8,25 +8,25 @@ const AppSidebar = () => {
                 <div className="relative group">
                     <Home className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                     <div className="absolute left-10 top-1/2 transform -translate-y-1/2  opacity-0 group-hover:opacity-100 bg-[#323232] text-white text-sm rounded px-2 py-1 whitespace-nowrap">
-                        Home
+                        ホーム
                     </div>
                 </div>
                 <div className="relative group">
                     <BarChart2 className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                     <div className="absolute left-10 top-1/2 transform -translate-y-1/2  opacity-0 group-hover:opacity-100 bg-[#323232] text-white text-sm rounded px-2 py-1 whitespace-nowrap">
-                        hyouka
+                        評価
                     </div>
                 </div>
                 <div className="relative group">
                     <FileText className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                     <div className="absolute left-10 top-1/2 transform -translate-y-1/2  opacity-0 group-hover:opacity-100 bg-[#323232] text-white text-sm rounded px-2 py-1 whitespace-nowrap">
-                        kaizenan
+                        改善案
                     </div>
                 </div>
                 <div className="relative group">
                     <ChartSpline className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                     <div className="absolute left-10 top-1/2 transform -translate-y-1/2  opacity-0 group-hover:opacity-100 bg-[#323232] text-white text-sm rounded px-2 py-1 whitespace-nowrap">
-                        Streak
+                        連続記録
                     </div>
                 </div>
             </div>
@@ -34,13 +34,13 @@ const AppSidebar = () => {
                 <div className="relative group">
                     <User className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                     <div className="absolute left-10 top-1/2 transform -translate-y-1/2  opacity-0 group-hover:opacity-100 bg-[#323232] text-white text-sm rounded px-2 py-1 whitespace-nowrap">
-                        Account
+                        アカウント
                     </div>
                 </div>
                 <div className="relative group">
                     <Settings className="text-[#636363] w-8 h-8 hover:text-white cursor-pointer" />
                     <div className="absolute left-10 top-1/2 transform -translate-y-1/2  opacity-0 group-hover:opacity-100 bg-[#323232] text-white text-sm rounded px-2 py-1 whitespace-nowrap">
-                        Setting
+                        設定
                     </div>
                 </div>
             </div>
