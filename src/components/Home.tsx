@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 // データの型定義
 interface Data {
 	name: string;
-	age: number;
+	posture: number;
+	time: string;
 	_id?: string;
 }
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
 				setIsLoading(true);
 				// さくらVPSのIPアドレスを指定
 				// data/[username]のエンドポイントにGETリクエストを送信
-				const response = await fetch("http://160.16.198.143:3000/data/Kento");
+				const response = await fetch("http://160.16.198.143:3000/data/test");
 				if (!response.ok) {
 					throw new Error(`HTTPエラー 状態: ${response.status}`);
 				}
@@ -48,7 +49,8 @@ const Home = () => {
 				{data.map((item, index) => (
 					<li key={index}>
 						<p className='text-center '>名前:{item.name}</p>
-						<p className='text-center '>年齢:{item.age}</p>
+						<p className='text-center '>姿勢:{item.posture}</p>
+						<p className='text-center '>時間:{item.time}</p>
 					</li>
 				))}
 			</ul>
