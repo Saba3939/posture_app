@@ -21,8 +21,9 @@ function App() {
 				<Contents id="improvement" title="改善案" children="ここに要素を追加" />
 				<Contents id="streak" title="連続記録">
 					<div className="flex justify-center">
-						<Streak
+						<Streak               // 縦
 							data={Array.from({length: 7}, () =>
+								              // 横        今は色をランダムで表示
 							Array.from({length: 30}, () => Math.round(Math.random())))}
 						/>
 					</div>
