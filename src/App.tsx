@@ -16,10 +16,29 @@ function App() {
 			<div className="flex-1 p-4 flex flex-col gap-6 overflow-y-auto">
 				<div id="top" className="text-4xl text-center text-white"><h1>Body Balancer</h1></div>
 				<Home />
-				<Contents id="graph" title="グラフ" children="ここに要素を追加" />
-				<Contents id="evalution" title="評価" children="ここに要素を追加" />
-				<Contents id="improvement" title="改善案" children="ここに要素を追加" />
-				<Contents id="streak" title="連続記録">
+				<Contents
+					id="graph"
+					title="グラフ"
+					description="このグラフはあなたの姿勢状態を可視化させたグラフです"
+					children="ここに要素を追加"
+				/>
+				<Contents
+					id="evalution"
+					title="評価"
+					description="あなたの姿勢状態に対する評価です"
+					children="ここに要素を追加"
+				/>
+				<Contents
+					id="improvement"
+					title="改善案"
+					description="あなたの姿勢状態を改善するための提案です"
+					children="ここに要素を追加"
+				/>
+				<Contents
+					id="streak"
+					title="連続記録"
+					description="改善への取り組みを記録しています"
+				>
 					<div className="flex justify-center">
 						<Streak               // 縦
 							data={Array.from({length: 7}, () =>
