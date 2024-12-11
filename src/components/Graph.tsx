@@ -11,7 +11,6 @@ const Graph = () => {
             label: '姿勢',
             data: [0, 1, 0, 3, 2, 0],
             fill: false,
-            borderColor: 'rgb(255, 255, 255)',
             tension: 0.1
         },],
     };
