@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Contents from "./components/Contents";
 import AppSidebar from "./components/Sidebar";
 import Streak from "./components/Streak";
+import Graph from "./components/Graph";
 import "./App.css";
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
 					id="graph"
 					title="グラフ"
 					description="このグラフはあなたの姿勢状態を可視化させたグラフです"
-					children="ここに要素を追加"
-				/>
+				>
+					<Graph />
+				</Contents>
 				<Contents
 					id="evalution"
 					title="評価"
