@@ -40,10 +40,8 @@ function App() {
 					description="改善への取り組みを記録しています"
 				>
 					<div className="flex justify-center">
-						<Streak               // 縦
-							data={Array.from({length: 7}, () =>
-								              // 横        今は色をランダムで表示
-							Array.from({length: 53}, () => Math.round(Math.random())))}
+						<Streak
+							data={Array.from({ length: 7 }, () => Array(53).fill(0))}
 						/>
 					</div>
 				</Contents>
