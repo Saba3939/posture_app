@@ -23,7 +23,8 @@ const Graph = () => {
             },
             y: {
                 title: { display: true, text: '姿勢(6段階)' },
-                grid: { color: 'rgb(255, 255, 255)' }
+                grid: { color: 'rgb(255, 255, 255)' },
+                ticks: { stepSize: 1.0 }
             },
         },  
     };
