@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Header from "./components/Header";
 import Home from "./components/Home";
 import Contents from "./components/Contents";
 import AppSidebar from "./components/Sidebar";
@@ -10,7 +9,6 @@ import "./App.css";
 function App() {
 	return (
 		<div className='h-screen bg-opacity-90 bg-black flex'>
-			{/* <Header /> */}
 			<div className="h-screen sticky top-0 bg-black w-[80px] flex-shrink-0 border-r border-[#323232]">
 				<AppSidebar />
 			</div>
@@ -45,7 +43,7 @@ function App() {
 						<Streak               // 縦
 							data={Array.from({length: 7}, () =>
 								              // 横        今は色をランダムで表示
-							Array.from({length: 30}, () => Math.round(Math.random())))}
+							Array.from({length: 53}, () => Math.round(Math.random())))}
 						/>
 					</div>
 				</Contents>
