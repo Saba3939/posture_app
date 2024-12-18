@@ -1,3 +1,5 @@
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../lib/firebase";
 import React, { useEffect, useState } from "react";
 // データの型定義
 interface Data {
@@ -10,37 +12,24 @@ const Home = () => {
 	// データ取得用のステート
 	const [data, setData] = useState<Data[]>([]);
 	// エラー用のステート
-	const [error, setError] = useState<string | null>(null);
-	// ローディング用のステート:trueの間ローディング中
-	const [isLoading, setIsLoading] = useState<boolean>(true);
 	// データ取得処理
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				setIsLoading(true);
-				// さくらVPSのIPアドレスを指定
-				// data/[username]のエンドポイントにGETリクエストを送信
-				const response = await fetch("http://160.16.198.143:3000/data/test");
-				if (!response.ok) {
-					throw new Error(`HTTPエラー 状態: ${response.status}`);
-				}
-				const result: Data[] = await response.json();
-				const formattedData = Array.isArray(result) ? result : [result]; // 配列でない場合の対策
-				// 取得したデータをステートにセット
-				setData(formattedData);
-			} catch (err) {
-				setError((err as Error).message);
-			} finally {
-				setIsLoading(false);
+		const unsubscribe = onSnapshot(
+			collection(db, "Users", "user1", "postures"),
+			(snapshot) => {
+				const fetchedData = snapshot.docs.map((doc) => {
+					const data = doc.data();
+					return {
+						_id: doc.id,
+						...data,
+						time: data.time.toDate().toLocaleString(),
+					};
+				}) as Data[];
+				setData(fetchedData);
 			}
-		};
-		fetchData();
+		);
+		return () => unsubscribe();
 	}, []);
-	// エラー表示
-	if (error) return <p className='text-center text-white'>エラー: {error}</p>;
-	// ローディング表示
-	if (isLoading)
-		return <p className='text-center text-white'>ローディング中...</p>;
 	// データ表示
 	return (
 		<div className='text-center  text-white h-screen'>
@@ -48,7 +37,6 @@ const Home = () => {
 			<ul>
 				{data.map((item, index) => (
 					<li key={index}>
-						<p className='text-center '>名前:{item.name}</p>
 						<p className='text-center '>姿勢:{item.posture}</p>
 						<p className='text-center '>時間:{item.time}</p>
 					</li>
