@@ -60,7 +60,7 @@ const Streak: React.FC<StreakProps> = ({ data }) => {
         <div className="flex flex-col gap-2">
             {isButtonVisible && (
                 <button onClick={markToday} className="mb-4 px-4 py-2 bg-white text-black rounded hover:bg-[#636363]">
-                    done?
+                    ストレッチした!!
                 </button>
             )}
             <div className="flex items-center justify-center gap-1 ml-6">
