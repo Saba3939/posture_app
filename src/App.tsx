@@ -63,7 +63,6 @@ function App() {
 				<Contents
 					id='graph'
 					title='グラフ'
-					description='このグラフはあなたの姿勢状態を可視化させたグラフです'
 				>
 					<Graph />
 				</Contents>
@@ -72,7 +71,6 @@ function App() {
 					<Contents
 						id='evalution'
 						title='評価'
-						description='あなたの姿勢状態に対する評価です'
 						children={
 							<div>
 								{data &&
@@ -94,7 +92,6 @@ function App() {
 						<Contents
 							id='improvement'
 							title='改善案'
-							description='あなたの姿勢状態を改善するための提案です'
 							children='ここに要素を追加'
 						/>
 					</div>
@@ -102,7 +99,6 @@ function App() {
 				<Contents
 					id='streak'
 					title='連続記録'
-					description='改善への取り組みを記録しています'
 				>
 					<div className="flex justify-center">
 						<Streak
