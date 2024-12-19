@@ -10,7 +10,7 @@ interface ContentsBoxProps {
 
 const Contents: React.FC<ContentsBoxProps> = ({ id, title, description, children }) => {
     return (
-        <Card id={id} className="bg-black p-6 text-white border border-[#323232]">
+        <Card id={id} className="bg-black p-6 text-white border border-[#323232] flex-1">
             <CardHeader className="text-2xl p-2">
                 <CardTitle className="mb-0">{title}</CardTitle>
             </CardHeader>
