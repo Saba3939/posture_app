@@ -54,7 +54,7 @@ const Streak: React.FC<StreakProps> = ({ data }) => {
     useEffect(() => {
         const trimData = trimCells(data);
         setGridData(trimData); // いらんマス削除
-    }, [data]);
+    }, []);
 
     return (
         <div className="flex flex-col gap-2">
