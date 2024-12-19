@@ -71,22 +71,24 @@ function App() {
 				>
 					<Graph />
 				</Contents>
-				<Contents
-					id='evalution'
-					title='評価'
-					description='あなたの姿勢状態に対する評価です'
-					children={
-						<div>
-							{data &&
-								data.map((data, _) => (
-									<div className='text-xl'>
-										<div>
-											現在の姿勢状態:
-											<div className='text-2xl font-bold text-center'>
-												{classes[data.class]}
+				<div className="flex gap-6 items-stretch">
+					<div className="w-[275px] flex flex-col">
+					<Contents
+						id='evalution'
+						title='評価'
+						description='あなたの姿勢状態に対する評価です'
+						children={
+							<div>
+								{data &&
+									data.map((data, _) => (
+										<div className='text-xl'>
+											<div>
+												現在の姿勢状態:
+												<div className='text-2xl font-bold text-center'>
+													{classes[data.class]}
+												</div>
 											</div>
 										</div>
-									</div>
 								))}
 						</div>
 					}
@@ -97,6 +99,7 @@ function App() {
 					description='あなたの姿勢状態を改善するための提案です'
 					children={<div>{advice}</div>}
 				/>
+
 				<Contents
 					id='streak'
 					title='連続記録'
