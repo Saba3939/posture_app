@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Home from "./components/Home";
 import Contents from "./components/Contents";
 import AppSidebar from "./components/Sidebar";
 import Streak from "./components/Streak";
