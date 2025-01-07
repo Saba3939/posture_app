@@ -36,7 +36,7 @@ const Streak: React.FC<StreakProps> = ({ data }) => {
     const markToday = () => {
         const today = new Date();
         const dayIndex = today.getDay(); // 0:日, 1:月, ..., 6:土
-        const diffInMillis = today.getTime() - new Date(2024, 0, 1).getTime();
+        const diffInMillis = today.getTime() - new Date(2025, 0, 1).getTime();
         const oneDayInMillis = 1000 * 60 * 60 * 24;
         const daysSinceStart = Math.floor(diffInMillis / oneDayInMillis);
         const weekIndex = Math.floor(daysSinceStart / daysInWeek);
