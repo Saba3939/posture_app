@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Home from "./components/Home";
 import Contents from "./components/Contents";
 import AppSidebar from "./components/Sidebar";
 import Streak from "./components/Streak";
@@ -19,10 +18,16 @@ interface PostureData {
 	class: number;
 	time: string;
 }
-
-// const postureAdvice: PostureAdvice = require("./data/postureAdvice.json");
-
-const classes: string[] = ["正常", "右寄り", "前傾", "左寄り", "後傾"];
+const classes: string[] = [
+	"正常",
+	"右寄り",
+	"左寄り",
+	"前傾",
+	"後傾",
+	"右回転",
+	"左回転",
+	"その他",
+];
 function App() {
 	const [data, setData] = useState<PostureData[]>([]);
 	const [advice, setAdvice] = useState<string>("");
@@ -53,7 +58,7 @@ function App() {
 	};
 	useEffect(() => {
 		fetchData();
-	}, []);
+	});
 	return (
 		<div className='h-screen bg-opacity-90 bg-black flex'>
 			<div className='h-screen sticky top-0 bg-black w-[80px] flex-shrink-0 border-r border-[#323232]'>
@@ -67,7 +72,6 @@ function App() {
 				<Contents
 					id='graph'
 					title='グラフ'
-					description='このグラフはあなたの姿勢状態を可視化させたグラフです'
 				>
 					<Graph />
 				</Contents>
@@ -76,7 +80,6 @@ function App() {
 					<Contents
 						id='evalution'
 						title='評価'
-						description='あなたの姿勢状態に対する評価です'
 						children={
 							<div>
 								{data &&
@@ -89,24 +92,27 @@ function App() {
 												</div>
 											</div>
 										</div>
-								))}
-						</div>
-					}
-				/>
-				<Contents
-					id='improvement'
-					title='改善案'
-					description='あなたの姿勢状態を改善するための提案です'
-					children={<div>{advice}</div>}
-				/>
-
+									))}
+							</div>
+						}
+					/>
+					</div>
+					<div className="flex-1 flex flex-col min-h-0">
+						<Contents
+							id='improvement'
+							title='改善案'
+							children={<div>{advice}</div>}
+						/>
+					</div>
+				</div>
 				<Contents
 					id='streak'
 					title='連続記録'
-					description='改善への取り組みを記録しています'
 				>
-					<div className='flex justify-center'>
-						<Streak data={Array.from({ length: 7 }, () => Array(53).fill(0))} />
+					<div className="flex justify-center">
+						<Streak
+							data={Array.from({ length: 7 }, () => Array(53).fill(0))}
+						/>
 					</div>
 				</Contents>
 			</div>
